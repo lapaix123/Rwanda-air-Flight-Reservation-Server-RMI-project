@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 import javax.annotation.Generated;
@@ -15,7 +16,7 @@ import javax.persistence.*;
  * @author la paix
  */
 @Entity
-public class Booking {
+public class Booking implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long bookingId;

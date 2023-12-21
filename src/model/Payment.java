@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
  * @author la paix
  */
 @Entity
-public class Payment {
+public class Payment implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long paymentId;

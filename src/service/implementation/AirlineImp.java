@@ -7,6 +7,7 @@ package service.implementation;
 
 import dao.AirlineDao;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import model.Airline;
 import service.AirlineService;
@@ -15,9 +16,9 @@ import service.AirlineService;
  *
  * @author la paix
  */
-public class AirlineImp implements AirlineService{
+public class AirlineImp extends UnicastRemoteObject implements AirlineService{
 
-    public AirlineImp() {
+    public AirlineImp() throws RemoteException{
         super();
     }
     

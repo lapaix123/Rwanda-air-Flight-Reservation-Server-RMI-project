@@ -23,5 +23,5 @@ public interface FlightService extends Remote{
 
     List<Flight> getAllFlights() throws RemoteException;
 
-    Flight findFlightById(Long flightId) throws RemoteException; 
+    Flight findFlightById(Flight flight) throws RemoteException; 
 }

@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.*;
@@ -14,7 +15,7 @@ import javax.persistence.*;
  * @author la paix
  */
 @Entity
-public class Flight {
+public class Flight implements Serializable{
       @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long flightId;

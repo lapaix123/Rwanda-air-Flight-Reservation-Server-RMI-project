@@ -5,10 +5,25 @@
  */
 package service;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.util.List;
+import model.Country;
+
 /**
  *
  * @author la paix
  */
-public interface CountryService {
+public interface CountryService extends Remote{
+    
+    String createCountry(Country country) throws RemoteException;
+
+    String updateCountry(Country country) throws RemoteException;
+
+    String deleteCountry(Country country) throws RemoteException;
+
+    List<Country> getAllCountries() throws RemoteException;
+
+    Country findCountryById(Country country) throws RemoteException;
     
 }
