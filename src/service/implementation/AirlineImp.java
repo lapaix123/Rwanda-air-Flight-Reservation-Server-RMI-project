@@ -5,10 +5,48 @@
  */
 package service.implementation;
 
+import dao.AirlineDao;
+import java.rmi.RemoteException;
+import java.util.List;
+import model.Airline;
+import service.AirlineService;
+
 /**
  *
  * @author la paix
  */
-public class AirlineImp {
+public class AirlineImp implements AirlineService{
+
+    public AirlineImp() {
+        super();
+    }
+    
+    
+   public AirlineDao dao= new AirlineDao();
+
+    @Override
+    public String createAirline(Airline airline) throws RemoteException {
+      return  dao.newAirline(airline);
+    }
+
+    @Override
+    public String updateAirline(Airline airline) throws RemoteException {
+    return dao.updateAirline(airline);
+    }
+
+    @Override
+    public String deleteAirline(Airline airline) throws RemoteException {
+        return dao.deleteAirline(airline);
+      }
+
+    @Override
+    public List<Airline> getAllAirlines() throws RemoteException {
+        return dao.airlineListe();
+    }
+
+    @Override
+    public Airline findAirlineById(Airline airline) throws RemoteException {
+       return dao.findById(airline);
+    }
     
 }
