@@ -6,6 +6,7 @@
 package model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.*;
 
@@ -33,6 +34,9 @@ public class Passenger implements Serializable{
 
     @Column(unique = true)
     private String nId;
+    private String gender;
+    private LocalDate dob;
+    
 
     // Other fields specific to the Passenger entity
 
@@ -42,7 +46,7 @@ public class Passenger implements Serializable{
     public Passenger() {
     }
 
-    public Passenger(Long passengerId, String email, String fNames, String lnames, String phone, String address, String password, String nId, List<Booking> bookings) {
+    public Passenger(Long passengerId, String email, String fNames, String lnames, String phone, String address, String password, String nId, String gender, LocalDate dob, List<Booking> bookings) {
         this.passengerId = passengerId;
         this.email = email;
         this.fNames = fNames;
@@ -51,8 +55,28 @@ public class Passenger implements Serializable{
         this.address = address;
         this.password = password;
         this.nId = nId;
+        this.gender = gender;
+        this.dob = dob;
         this.bookings = bookings;
     }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+  
 
     public Long getPassengerId() {
         return passengerId;

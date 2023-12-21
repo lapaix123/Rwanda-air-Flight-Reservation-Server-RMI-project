@@ -7,6 +7,7 @@ package service.implementation;
 
 import dao.PaymentDao;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import model.Payment;
 import service.PaymentService;
@@ -15,9 +16,9 @@ import service.PaymentService;
  *
  * @author la paix
  */
-public class PaymentImp implements PaymentService{
+public class PaymentImp extends UnicastRemoteObject implements PaymentService{
 
-    public PaymentImp() {
+    public PaymentImp() throws RemoteException{
         super();
     }
     public PaymentDao dao= new PaymentDao();

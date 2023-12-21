@@ -7,6 +7,7 @@ package service.implementation;
 
 import dao.UserDao;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import model.User;
 import service.UserService;
@@ -15,9 +16,9 @@ import service.UserService;
  *
  * @author la paix
  */
-public class UserImp implements UserService{
+public class UserImp extends UnicastRemoteObject implements UserService{
 
-    public UserImp() {
+    public UserImp() throws RemoteException{
         super();
     }
     public UserDao dao= new UserDao();

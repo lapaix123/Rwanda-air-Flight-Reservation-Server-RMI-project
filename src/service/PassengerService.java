@@ -14,8 +14,9 @@ import model.Passenger;
  *
  * @author la paix
  */
-public interface PassengerService extends Remote{
-     String createPassenger(Passenger passenger) throws RemoteException;
+public interface PassengerService extends Remote {
+
+    String createPassenger(Passenger passenger) throws RemoteException;
 
     String updatePassenger(Passenger passenger) throws RemoteException;
 

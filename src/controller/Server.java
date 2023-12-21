@@ -30,7 +30,8 @@ public class Server extends UnicastRemoteObject {
         this.userService = new UserImp();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {       
+        
         try {
             // Set property
             System.setProperty("java.rmi.server.hostname", "127.0.0.1");

@@ -7,6 +7,7 @@ package service.implementation;
 
 import dao.BookingDao;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import model.Booking;
 import service.BookingService;
@@ -15,9 +16,9 @@ import service.BookingService;
  *
  * @author la paix
  */
-public class BookingImp implements BookingService{
+public class BookingImp extends UnicastRemoteObject implements BookingService{
 
-    public BookingImp() {
+    public BookingImp() throws RemoteException{
         super();
     }
     public BookingDao dao= new BookingDao();

@@ -7,6 +7,7 @@ package service.implementation;
 
 import dao.CountryDao;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import model.Country;
 import service.CountryService;
@@ -15,9 +16,9 @@ import service.CountryService;
  *
  * @author la paix
  */
-public class CountryImp implements CountryService{
+public class CountryImp extends UnicastRemoteObject implements CountryService{
 
-    public CountryImp() {
+    public CountryImp() throws RemoteException{
         super();
     }
     public CountryDao dao= new CountryDao();
