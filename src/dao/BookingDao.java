@@ -7,6 +7,8 @@ package dao;
 
 import java.util.List;
 import model.Booking;
+import model.Passenger;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -15,7 +17,8 @@ import org.hibernate.Transaction;
  * @author la paix
  */
 public class BookingDao {
-        public String createBooking(Booking booking) {
+
+    public String createBooking(Booking booking) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             Transaction transaction = session.beginTransaction();
@@ -72,12 +75,26 @@ public class BookingDao {
     public Booking findBookingById(Booking booking) {
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
-            Booking booking1 =(Booking) session.get(Booking.class, booking.getBookingId());
+            Booking booking1 = (Booking) session.get(Booking.class, booking.getBookingId());
             session.close();
             return booking1;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
-}
+    }
+    
+    public List<Booking> findBookingsByPassenger(Passenger passenger) {
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            Query query = session.createQuery("FROM Booking b WHERE b.passenger = :passenger");
+            query.setParameter("passenger", passenger);
+            List<Booking> bookings = query.list();
+            session.close();
+            return bookings;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

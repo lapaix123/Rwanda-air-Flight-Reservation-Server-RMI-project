@@ -6,6 +6,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import service.*;
 import service.implementation.AirlineImp;
+import service.implementation.BookingImp;
 import service.implementation.CountryImp;
 import service.implementation.FlightImp;
 import service.implementation.PassengerImp;
@@ -20,6 +21,7 @@ public class Server extends UnicastRemoteObject {
     private PassengerService passengerService;
     private PaymentService paymentService;
     private UserService userService;
+    private BookingService bookingService;
 
     public Server() throws RemoteException {
         this.airlineService = new AirlineImp();
@@ -28,6 +30,7 @@ public class Server extends UnicastRemoteObject {
         this.passengerService = new PassengerImp();
         this.paymentService = new PaymentImp();
         this.userService = new UserImp();
+        this.bookingService= new BookingImp();
     }
 
     public static void main(String[] args) {       
@@ -47,6 +50,7 @@ public class Server extends UnicastRemoteObject {
             registry.rebind("passengerService", server.passengerService);
             registry.rebind("paymentService", server.paymentService);
             registry.rebind("userService", server.userService);
+            registry.rebind("bookingService", server.bookingService);
             
             System.out.println("Rwanada Air is Running on port 6000");
         } catch (Exception e) {

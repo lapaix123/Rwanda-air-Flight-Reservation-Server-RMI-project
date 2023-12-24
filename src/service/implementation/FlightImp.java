@@ -8,6 +8,7 @@ package service.implementation;
 import dao.FlightDao;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Date;
 import java.util.List;
 import model.Flight;
 import service.FlightService;
@@ -16,38 +17,42 @@ import service.FlightService;
  *
  * @author la paix
  */
-public class FlightImp extends UnicastRemoteObject implements FlightService{
+public class FlightImp extends UnicastRemoteObject implements FlightService {
 
-    public FlightImp() throws RemoteException{
+    public FlightImp() throws RemoteException {
         super();
     }
-    
+
     public FlightDao dao = new FlightDao();
-    
 
     @Override
     public String createFlight(Flight flight) throws RemoteException {
-      return dao.createFlight(flight);
+        return dao.createFlight(flight);
     }
 
     @Override
     public String updateFlight(Flight flight) throws RemoteException {
-       return dao.updateFlight(flight);
+        return dao.updateFlight(flight);
     }
 
     @Override
     public String deleteFlight(Flight flight) throws RemoteException {
-     return dao.deleteFlight(flight);
+        return dao.deleteFlight(flight);
     }
 
     @Override
     public List<Flight> getAllFlights() throws RemoteException {
-      return dao.getAllFlights();
+        return dao.getAllFlights();
     }
 
     @Override
     public Flight findFlightById(Flight flight) throws RemoteException {
-     return dao.findFlightById(flight);
+        return dao.findFlightById(flight);
     }
-    
+
+//    @Override
+//    public List<Flight> searchFlights(Long departureCityName, Long arrivalCityName, Date departureDate, Date arrivalDate) {
+//        return null;
+//    }
+
 }

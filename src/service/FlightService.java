@@ -7,6 +7,7 @@ package service;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.Date;
 import java.util.List;
 import model.Flight;
 
@@ -14,8 +15,9 @@ import model.Flight;
  *
  * @author la paix
  */
-public interface FlightService extends Remote{
-   String createFlight(Flight flight) throws RemoteException;
+public interface FlightService extends Remote {
+
+    String createFlight(Flight flight) throws RemoteException;
 
     String updateFlight(Flight flight) throws RemoteException;
 
@@ -23,5 +25,8 @@ public interface FlightService extends Remote{
 
     List<Flight> getAllFlights() throws RemoteException;
 
-    Flight findFlightById(Flight flight) throws RemoteException; 
+    Flight findFlightById(Flight flight) throws RemoteException;
+
+//    List<Flight> searchFlights(Long departureCityName, Long arrivalCityName, Date departureDate, Date arrivalDate);
+
 }

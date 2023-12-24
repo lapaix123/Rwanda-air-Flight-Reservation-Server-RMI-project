@@ -9,6 +9,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 import model.Booking;
+import model.Passenger;
 
 /**
  *
@@ -24,4 +25,5 @@ public interface BookingService extends Remote{
     List<Booking> getAllBookings()throws RemoteException;
 
     Booking findBookingById(Booking booking)throws RemoteException;
+   List<Booking> findBookingsByPassenger(Passenger passenger) throws RemoteException;
 }

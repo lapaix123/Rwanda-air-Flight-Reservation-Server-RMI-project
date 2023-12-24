@@ -5,10 +5,14 @@
  */
 package dao;
 
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import model.Flight;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -80,4 +84,35 @@ public class FlightDao {
             return null;
         }
     } 
+    
+//    public List<Flight> searchFlights(Long departureCityName, Long arrivalCityName, Date departureDate, Date arrivalDate) {
+//        try {
+//            Session session = HibernateUtil.getSessionFactory().openSession();
+//            Criteria criteria = session.createCriteria(Flight.class);
+//
+//            // Add restrictions based on the provided parameters
+//            if (departureCityName != null) {
+//                criteria.createAlias("departureCity", "departureCityAlias");
+//                criteria.add(Restrictions.eq("departureCityAlias.name", departureCityName));
+//            }
+//
+//            if (arrivalCityName != null) {
+//                criteria.createAlias("arrivalCity", "arrivalCityAlias");
+//                criteria.add(Restrictions.eq("arrivalCityAlias.name", arrivalCityName));
+//            }
+//
+//            if (departureDate != null) {
+//                criteria.add(Restrictions.ge("departureDateTime", departureDate));
+//            }
+//
+//            if (arrivalDate != null) {
+//                criteria.add(Restrictions.le("arrivalDateTime", arrivalDate));
+//            }
+//
+//            return criteria.list();
+//        } catch (Exception e) {
+//            e.printStackTrace();  // Log or handle the exception appropriately
+//            return Collections.emptyList();  // Return an empty list to avoid returning null
+//        }
+//    }
 }

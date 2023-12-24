@@ -10,32 +10,33 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 import model.Booking;
+import model.Passenger;
 import service.BookingService;
 
 /**
  *
  * @author la paix
  */
-public class BookingImp extends UnicastRemoteObject implements BookingService{
+public class BookingImp extends UnicastRemoteObject implements BookingService {
 
-    public BookingImp() throws RemoteException{
+    public BookingImp() throws RemoteException {
         super();
     }
-    public BookingDao dao= new BookingDao();
+    public BookingDao dao = new BookingDao();
 
     @Override
     public String createBooking(Booking booking) throws RemoteException {
-       return dao.createBooking(booking);
+        return dao.createBooking(booking);
     }
 
     @Override
     public String updateBooking(Booking booking) throws RemoteException {
-      return dao.updateBooking(booking);
+        return dao.updateBooking(booking);
     }
 
     @Override
     public String deleteBooking(Booking booking) throws RemoteException {
-      return dao.deleteBooking(booking);
+        return dao.deleteBooking(booking);
     }
 
     @Override
@@ -45,7 +46,12 @@ public class BookingImp extends UnicastRemoteObject implements BookingService{
 
     @Override
     public Booking findBookingById(Booking booking) throws RemoteException {
-     return dao.findBookingById(booking);
+        return dao.findBookingById(booking);
     }
-    
+
+    @Override
+    public List<Booking> findBookingsByPassenger(Passenger passenger) throws RemoteException {
+        return dao.findBookingsByPassenger(passenger);
+    }
+
 }
